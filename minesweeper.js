@@ -4,18 +4,48 @@ document.addEventListener('contextmenu', checkForWin)
 
 
 // Define your `board` object here!
-var board = {
+// var board = {
+//
+// cells: [{row: 0, col: 0, isMine: false, hidden: true},
+//         {row: 0, col: 1, isMine: true, hidden: true},
+//         {row: 0, col: 2, isMine: false, hidden: true},
+//         {row: 1, col: 0, isMine: false, hidden: true},
+//         {row: 1, col: 1, isMine: true, hidden: true},
+//         {row: 1, col: 2, isMine: false, hidden: true},
+//         {row: 2, col: 0, isMine: true, hidden: true},
+//         {row: 2, col: 1, isMine: false, hidden: true},
+//         {row: 2, col: 2, isMine: true, hidden: true}]
+// }
 
-cells: [{row: 0, col: 0, isMine: false, hidden: true},
-        {row: 0, col: 1, isMine: true, hidden: true},
-        {row: 0, col: 2, isMine: false, hidden: true},
-        {row: 1, col: 0, isMine: false, hidden: true},
-        {row: 1, col: 1, isMine: true, hidden: true},
-        {row: 1, col: 2, isMine: false, hidden: true},
-        {row: 2, col: 0, isMine: true, hidden: true},
-        {row: 2, col: 1, isMine: false, hidden: true},
-        {row: 2, col: 2, isMine: true, hidden: true}]
+// function createBoard(row, col, isMine, isMarked, hidden) {
+//   this.cells = [{row, col, isMine, isMarked, hidden}, {row, col, isMine, isMarked, hidden}]
+// }
+//
+// var board = new createBoard(0,0,true,false,true);
+
+var board = {
+  cells: []
+};
+
+createBoard(3);
+
+function createBoard(squares){
+
+  console.log(squares);
+  var countCol = 0;
+  var countRow = 0;
+
+  for(var i = 0; countRow<squares; i++ ) {
+    for(var i=0; countCol<squares; i++){
+      board.cells.push({row: countRow, col: countCol, isMine: Math.random() >= 0.5, isMarked: false, hidden: true});
+      countCol = countCol + 1;
+    }
+    countCol = 0;
+    countRow = countRow + 1;
+  }
 }
+
+
 
 function startGame () {
   // Don't remove this function call: it makes the game work!
