@@ -10,6 +10,7 @@ body {
   flex-direction: column;
 }
 
+
 #message, #notes {
   display: flex;
   flex-direction: column;
